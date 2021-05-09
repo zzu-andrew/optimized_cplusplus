@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-project(c-algorithms)
+project(optimized_cplusplus)
 
 add_executable(test main.cpp)
 
