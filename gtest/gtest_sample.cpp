@@ -105,7 +105,8 @@ namespace {
 
 // Tests factorial of positive numbers.
     TEST(FactorialTest, Positive) {
-        EXPECT_EQ(1, Factorial(1));
+        // 后面加上对应打印信息，当测试失败的时候就会打印出来
+        EXPECT_EQ(4, Factorial(1)) << "expect 4 failed Factorial(1) should equal 1";
         EXPECT_EQ(2, Factorial(2));
 
         EXPECT_EQ(6, Factorial(3));

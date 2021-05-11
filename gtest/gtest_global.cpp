@@ -17,13 +17,18 @@ protected:
         // 清理工作
     }
 
-    int a; // 全局有效
+public:
+    int &GetParamValue() {
+        return a;
+    }
+
+    void SetParamValue(int && v) {
+        a = v;
+    }
+
+private:
+    int a{}; // 全局有效
 };
-
-
-
-
-
 
 int main(int argc, char* argv[]) {
 
