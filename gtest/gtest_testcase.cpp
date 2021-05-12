@@ -205,6 +205,7 @@ namespace {
 
 // Tests Dequeue().
     TEST_F(QueueTestSmpl3, Dequeue) {
+
         int * n = q0_.Dequeue();
         EXPECT_TRUE(n == nullptr);
 
