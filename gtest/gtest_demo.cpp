@@ -24,6 +24,7 @@ void BankAccount::Deposit(int &&amount) {
 
 bool BankAccount::Withdraw(int &amount) {
     balance -= amount;
+    return true;
 }
 
 // 为一组测试指定测试名称
@@ -63,6 +64,7 @@ namespace {
     }
 }
 
+///////////////////////////////////////////////////////////////
 namespace {
     class AccountBalance{
     public:
@@ -88,8 +90,12 @@ namespace {
         EXPECT_EQ(as.success, success);
     }
 
-
+    INSTANTIATE_TEST_SUITE_P(Default, WithdrawAccountTest, testing::Values(
+            AccountBalance{100, 50, 50, true},
+            AccountBalance{}
+            ));
 }
+
 
 
 int main(int argc, char* argv[])
