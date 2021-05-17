@@ -23,14 +23,20 @@ void BankAccount::Deposit(int &&amount) {
 }
 
 bool BankAccount::Withdraw(int &amount) {
-    balance -= amount;
-    return true;
+    if (amount < balance) {
+        balance -= amount;
+        return true;
+    }
+
+    return false;
 }
 
 // 为一组测试指定测试名称
 TEST(AccountTest, BankAccountStartsEmpty) {
     BankAccount bankAccount;
+    // ASSERT_EQ 和 EXPECT_EQ 的区别是 ASSERT_EQ判断失败会终止程序
     EXPECT_EQ(0, bankAccount.balance) << "bankAccount should be zero";
+    ASSERT_EQ(1, 1);
 }
 
 namespace {
@@ -72,8 +78,15 @@ namespace {
         int withdrawAmount;
         int finalBalance;
         bool success;
+
+        friend std::ostream &operator<<(std::ostream &os, const AccountBalance &balance) {
+            os << "initialBalance: " << balance.initialBalance << " withdrawAmount: " << balance.withdrawAmount
+               << " finalBalance: " << balance.finalBalance << " success: " << balance.success;
+            return os;
+        }
     };
 
+    // 继承之后变量也会跟着继承
     class WithdrawAccountTest : public BankAccountTest, public testing::WithParamInterface<AccountBalance> {
     public:
         WithdrawAccountTest() {
@@ -90,13 +103,12 @@ namespace {
         EXPECT_EQ(as.success, success);
     }
 
+    // 初始化测试夹具 TEST_P
     INSTANTIATE_TEST_SUITE_P(Default, WithdrawAccountTest, testing::Values(
             AccountBalance{100, 50, 50, true},
-            AccountBalance{}
+            AccountBalance{100, 200, 100, false}
             ));
 }
-
-
 
 int main(int argc, char* argv[])
 {
