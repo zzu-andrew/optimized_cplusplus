@@ -25,3 +25,8 @@ target_link_libraries(gtest_global
         PUBLIC gtest
         PUBLIC pthread)
 
+add_executable(gtest_print_color gtest_print_color.cpp)
+target_link_libraries(gtest_print_color
+        PUBLIC gtest
+        PUBLIC pthread)
+
