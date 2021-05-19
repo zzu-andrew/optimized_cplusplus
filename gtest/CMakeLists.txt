@@ -30,3 +30,8 @@ target_link_libraries(gtest_print_color
         PUBLIC gtest
         PUBLIC pthread)
 
+add_executable(gtest_event gtest_event.cpp)
+target_link_libraries(gtest_event
+        PUBLIC gtest
+        PUBLIC pthread)
+
