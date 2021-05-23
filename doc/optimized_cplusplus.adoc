@@ -1,0 +1,7 @@
+
+
+[source,go]
+----
+func name(data string) a int {
+}
+----

@@ -4,4 +4,4 @@ project(optimized_cplusplus)
 
 add_executable(test main.cpp)
 
-
+add_executable(const_func basic/const_func.cpp)
