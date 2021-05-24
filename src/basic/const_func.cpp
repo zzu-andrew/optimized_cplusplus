@@ -57,7 +57,7 @@ int main(int argc, const char** argv) {
     cout << watchData.GetData() << endl;
 
     // const 对象不能引用非const的成员函数
-    const WatchData *pWatchData = &watchData;
+//    const WatchData *pWatchData = &watchData;
     //  pWatchData->SetData(4);  error: passing ‘const WatchData’ as ‘this’ argument discards qualifiers [-fpermissive]
 
     StandData standData{};

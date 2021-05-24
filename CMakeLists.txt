@@ -5,7 +5,7 @@ project(optimized_cplusplus)
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 
-add_definitions("-std=c++11 -O -DSOCKLEN_T=socklen_t -g -D_LARGEFILE_SOURCE=1 -D_FILE_OFFSET_BITS=64 -Wall -DBSD=1")
+add_definitions("-std=c++11 -O -g -pg -Wall")
 
 set(CXX_FLAGS
     #-g
