@@ -4,7 +4,15 @@ project(optimized_cplusplus)
 
 add_executable(test main.cpp)
 
+# basic
+
 add_executable(const_func basic/const_func.cpp)
+add_executable(condition_var basic/condition_var.cpp)
+target_link_libraries(condition_var
+        PUBLIC -pthread)
+
+add_executable(make_a_tree basic/make_a_tree.cpp)
+
 
 # 添加库文件
 add_library(timer timer/timer_utils.cpp)
