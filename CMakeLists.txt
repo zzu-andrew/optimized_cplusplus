@@ -5,7 +5,7 @@ project(optimized_cplusplus)
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 
-add_definitions("-std=c++11 -O -g -pg -Wall")
+add_definitions("-std=c++11 -O0 -g -pg -Wall")
 
 set(CXX_FLAGS
     #-g

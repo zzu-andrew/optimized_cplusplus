@@ -30,3 +30,9 @@ add_executable(remove_ctrl optimize_file/remove_ctrl.cpp)
 target_link_libraries(remove_ctrl
         PUBLIC benchmark
         PUBLIC -pthread)
+
+add_executable(optimize_hotfunc optimize_file/optimized_hotfunc.cpp)
+target_link_libraries(optimize_hotfunc
+        PUBLIC benchmark
+        PUBLIC -pthread)
+

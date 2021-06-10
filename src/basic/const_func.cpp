@@ -2,6 +2,7 @@
 // Created by andrew on 2021/5/23.
 //
 #include <iostream>
+#include <array>
 
 using namespace std;
 /*
@@ -50,6 +51,22 @@ private:
     int m_index{};
 };
 
+
+void ArrayTest() {
+    std::array<char, 100> address{};
+
+    int i = 0;
+    for (auto &it : address) {
+        it = i;
+        i ++;
+    }
+
+    std::array<char, 100> address2{};
+    std::swap(address,address2);
+
+}
+
+
 int main(int argc, const char** argv) {
 
     WatchData watchData{};
@@ -64,6 +81,7 @@ int main(int argc, const char** argv) {
     standData.WatchData::SetData(43);
     cout << standData.WatchData::GetData() << endl;
 
+    ArrayTest();
 
     cout << "test" << endl;
     return 0;

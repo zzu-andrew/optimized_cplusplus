@@ -6,6 +6,10 @@
 #include <thread>
 #include <queue>
 #include <condition_variable>
+#include <ctime>
+#include <unistd.h>
+#include <map>
+#include <deque>
 
 using namespace std;
 
@@ -49,22 +53,33 @@ std::mutex foo,bar;
 void task_a () {
     std::lock (foo,bar);         // simultaneous lock (prevents deadlock)
     // adopt_lock 获取一把已经加锁的锁
+    std::cout << "lock foo bar " << std::endl;
     std::unique_lock<std::mutex> lck1 (foo,std::adopt_lock);
     std::unique_lock<std::mutex> lck2 (bar,std::adopt_lock);
     std::cout << "task a\n";
     // (unlocked automatically on destruction of lck1 and lck2)
 }
 
+/*
+ * 桃之夭夭。灼灼其华，之子于归，宜其室家
+ * */
+
 void task_b () {
     // foo.lock(); bar.lock(); // replaced by:
     std::unique_lock<std::mutex> lck1, lck2;
     // defer_lock 构造 unique_lock 但是先不进行加锁
+    sleep(1);
+
     lck1 = std::unique_lock<std::mutex>(bar,std::defer_lock);
     lck2 = std::unique_lock<std::mutex>(foo,std::defer_lock);
+    std::cout << "after defer lock " << std::endl;
+    sleep(10);
     std::lock (lck1,lck2);       // simultaneous lock (prevents deadlock)
     std::cout << "task b\n";
     // (unlocked automatically on destruction of lck1 and lck2)
 }
+
+
 
 
 class MoveData{
@@ -84,6 +99,11 @@ void move_test1(MoveData &data) {
     moveData.name = "sting";
     moveData.address = "127.0.0.1";
     data = std::move(moveData);
+
+    // 将内存降低到和当前的队列容量保持一致的水平
+    /*std::deque<int> deque_data;
+    deque_data.shrink_to_fit()*/
+
 }
 
 void move_test(MoveData &data) {
