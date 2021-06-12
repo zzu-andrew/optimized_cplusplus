@@ -3,6 +3,11 @@
 //
 #include <iostream>
 #include <list>
+#include <future>
+#include <mutex>
+#include <thread>
+
+#include <shared_mutex>
 
 using namespace std;
 
@@ -10,7 +15,12 @@ using namespace std;
 
 
 
+void packaged_task() {
 
+    std::async()
+
+
+}
 
 
 
