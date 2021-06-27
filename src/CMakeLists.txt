@@ -36,3 +36,9 @@ target_link_libraries(optimize_hotfunc
         PUBLIC benchmark
         PUBLIC -pthread)
 
+add_executable(effective_basic effective_C++/effective_basic.cpp)
+add_executable(auto_ptr_guard_data effective_C++/auto_ptr_guard_data.cpp)
+add_executable(template_recursive effective_C++/template_recursive.cpp)
+add_executable(operate_new_failed effective_C++/operate_new_failed.cpp)
+
+
