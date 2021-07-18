@@ -452,27 +452,7 @@ if (Derived *pDerived = dynamic_cast<Derived*>pd)
 
 
 
-
-
-
-
-
-
-
-
 ### 认识模板(`template`)元编程
-
-
-
-
-
-
-
-
-
-
-
-
 
 ```cpp
 //
@@ -502,6 +482,22 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+
+
+
+### 绝对不要重新定义继承而来的缺省参数值
+
+`virtual`函数是动态绑定，而缺省参数是静态绑定的。
+
+
+
+
+
+
+
+
+
+
 
 
 

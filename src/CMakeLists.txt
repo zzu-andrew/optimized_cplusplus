@@ -4,7 +4,38 @@ project(optimized_cplusplus)
 
 add_executable(test main.cpp)
 
-# basic
+
+# 设置C++编译 选项
+#set(CXX_FLAGS
+#        -g
+#        # -DVALGRIND
+#        # -DCHECK_PTHREAD_RETURN_VALUE
+#        # -D_FILE_OFFSET_BITS=64
+#        #-Wall
+#        # -Wextra
+#        -fpermissive
+#        # -Werror
+#        # -Wconversion
+#        # -Wno-unused-parameter
+#        # -Wold-style-cast
+#        # -Woverloaded-virtual
+#        # -Wpointer-arith
+#        # -Wshadow
+#        # -Wwrite-strings
+#        # -march=native
+#        )
+
+## 设置变量和宏定义
+#add_definitions("-std=c++11 -O0 -g -Wall")
+#
+
+# 设置头文件搜索路径  ${PROJECT_SOURCE_DIR} 代表的事当前CMakeLists.txt所在的文件夹
+include_directories("${PROJECT_SOURCE_DIR}/inc/")# basic
+
+
+#target_include_directories(foo
+#        PUBLIC "${CMAKE_CURRENT_BINARY_DIR}"
+#        )
 
 add_executable(const_func basic/const_func.cpp)
 add_executable(condition_var basic/condition_var.cpp)
@@ -40,5 +71,10 @@ add_executable(effective_basic effective_C++/effective_basic.cpp)
 add_executable(auto_ptr_guard_data effective_C++/auto_ptr_guard_data.cpp)
 add_executable(template_recursive effective_C++/template_recursive.cpp)
 add_executable(operate_new_failed effective_C++/operate_new_failed.cpp)
+add_executable(virtual_param effective_C++/virtual_param.cpp)
+add_executable(write_file basic/write_file.cpp)
+
+add_executable(function basic/function.cpp)
+add_executable(return_value_optimization basic/return_value_optimization.cpp)
 
 

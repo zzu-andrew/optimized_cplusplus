@@ -18,7 +18,7 @@
 void new_failed( ) {
     std::cout << " new failed " << std::endl;
     //  及时的将  new_handler 只有这样才会停止 new_handler的调用
-    std::new_handler newHandler = std::set_new_handler(nullptr);
+    std::set_new_handler(nullptr);
 }
 
 struct new_data{
@@ -37,13 +37,15 @@ struct new_data{
 
 int main(int argc, char *argv[]) {
 
-    std::new_handler newHandler = std::set_new_handler(new_failed);
+    std::new_handler oldHandler = std::set_new_handler(new_failed);
 
     // 申请失败会抛出 bad_alloc或派生自bad_alloc的异常，并且这个异常不会被operator捕捉，因此会被传播到内存的索求处
     new_data *pInt = new new_data[1000000000];
 
     // 这样使用也要保证 new_data的构造函数不抛出任何异常
     new_data *pNoThrowInt = new(std::nothrow) new_data[1000000000];
+
+    std::set_new_handler(oldHandler);
     delete[] pNoThrowInt;
 
     delete[] pInt;
