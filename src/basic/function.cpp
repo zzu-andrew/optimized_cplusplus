@@ -114,15 +114,12 @@ void adapter_demo() {
 }
 
 
-
 int main(int argc, char* argv[]) {
 
 
     sort_demo();
     vector_demo();
     adapter_demo();
-
-
 
 
     return 0;

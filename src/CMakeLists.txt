@@ -77,4 +77,13 @@ add_executable(write_file basic/write_file.cpp)
 add_executable(function basic/function.cpp)
 add_executable(return_value_optimization basic/return_value_optimization.cpp)
 
+add_executable(concurrent_atomic_release_consume concurrent_programming/release_consume.cpp)
+target_link_libraries(concurrent_atomic_release_consume
+        PUBLIC -pthread)
+
+
+add_executable(sequentially_consistent concurrent_programming/sequentially_consistent.cpp)
+target_link_libraries(sequentially_consistent
+        PUBLIC -pthread)
+
 
