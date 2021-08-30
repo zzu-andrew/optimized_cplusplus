@@ -6,7 +6,7 @@
 
 如下有两个线程，分别对a、R1、b、R2进行赋值，根据线程执行的顺序可能有以下几种情况
 
-![img](https://ny5odfilnr.feishu.cn/space/api/box/stream/download/asynccode/?code=NmNmN2ZlYTU3ODRjYzkwZTdhYmQwMTY4ODI4MjZkM2NfRkUyMFV0VWd1T1ZETTBXVHBzQUgyWmpQSnRTaVRFVThfVG9rZW46Ym94Y25NeEQ5dW9CQTZoeTBhZjF4R2NFc2FoXzE2MjkwMzIxOTg6MTYyOTAzNTc5OF9WNA)
+![img](image/16290324870631.png)
 
 在不对线程进行任何限制，线程内部指令不进行重排的情况下。可以有4!/(2!*2!)=6中情况
 
