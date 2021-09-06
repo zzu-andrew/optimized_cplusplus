@@ -86,4 +86,16 @@ add_executable(sequentially_consistent concurrent_programming/sequentially_consi
 target_link_libraries(sequentially_consistent
         PUBLIC -pthread)
 
+add_executable(future_demo concurrent_programming/future_demo.cpp)
+target_link_libraries(future_demo
+        PUBLIC -pthread)
+
+add_executable(promise_future concurrent_programming/promise_future.cpp)
+target_link_libraries(promise_future
+        PUBLIC -pthread)
+
+add_executable(shared_promise_future concurrent_programming/shared_future_demo.cpp)
+target_link_libraries(shared_promise_future
+        PUBLIC -pthread)
+
 
