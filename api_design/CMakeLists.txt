@@ -33,4 +33,20 @@ target_include_directories(shared_pointer
 target_link_libraries(shared_pointer
         PUBLIC -pthread)
 
+add_executable(callback_static qualities/callback_static/main.cpp
+            qualities/callback_static/modulea.cpp
+            qualities/callback_static/moduleb.cpp)
+target_include_directories(callback_static
+        PUBLIC qualities/callback_static)
+target_link_libraries(callback_static
+        PUBLIC -pthread)
+
+add_executable(callback_instance qualities/callback_instance/main.cpp
+        qualities/callback_instance/modulea.cpp
+        qualities/callback_instance/moduleb.cpp)
+target_include_directories(callback_instance
+        PUBLIC qualities/callback_instance)
+target_link_libraries(callback_instance
+        PUBLIC -pthread)
+
 
