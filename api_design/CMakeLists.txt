@@ -27,6 +27,7 @@ cmake_minimum_required(VERSION 3.2)
 # 设置头文件搜索路径  ${PROJECT_SOURCE_DIR} 代表的事当前CMakeLists.txt所在的文件夹
 include_directories("${PROJECT_SOURCE_DIR}/inc/")# basic
 
+# API 设计模块设计
 add_executable(shared_pointer qualities/shared_pointer/main.cpp qualities/shared_pointer/myobject.cpp)
 target_include_directories(shared_pointer
         PUBLIC qualities/shared_pointer)
@@ -48,5 +49,40 @@ target_include_directories(callback_instance
         PUBLIC qualities/callback_instance)
 target_link_libraries(callback_instance
         PUBLIC -pthread)
+
+add_executable(base_call_derive
+        qualities/base_call_derive_functions/base_call_deriver_functions.cpp)
+target_link_libraries(base_call_derive
+        PUBLIC -pthread)
+
+# API 设计设计模式接口设计
+
+add_executable(adapter patterns/adapter/main.cpp)
+target_include_directories(adapter
+        PUBLIC patterns/adapter)
+target_link_libraries(adapter
+        PUBLIC -pthread)
+
+
+add_library(extern_object
+        STATIC qualities/extern_leakage/extern_object.cpp)
+target_include_directories(extern_object
+        PUBLIC qualities/extern_leakage)
+
+
+add_executable(extern_leakage
+         qualities/extern_leakage/main.cpp)
+
+target_include_directories(extern_leakage
+        PUBLIC qualities/extern_leakage)
+
+target_link_libraries(extern_leakage
+        PUBLIC extern_object)
+
+
+
+
+
+
 
 
