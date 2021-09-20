@@ -60,6 +60,7 @@ const Node *Test(int T, const Node *c, std::size_t size, ofstream & outFile) {
     return node;
 }
 
+// 代码地址 https://github.com/zzu-andrew/optimized_cplusplus.git
 /*
  * @brief 系统缓存信息
  * L1d 缓存：                       128 KiB
