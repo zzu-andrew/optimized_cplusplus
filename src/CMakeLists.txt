@@ -99,3 +99,5 @@ target_link_libraries(shared_promise_future
         PUBLIC -pthread)
 
 
+add_executable(cpu_cache optimize_file/cpu_cache.cpp)
+

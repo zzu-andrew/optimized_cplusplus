@@ -80,9 +80,14 @@ target_link_libraries(extern_leakage
         PUBLIC extern_object)
 
 
+add_library(entry_point_shared
+        SHARED qualities/entry_point_shared/my_shared_object.cpp)
+target_include_directories(entry_point_shared
+        PUBLIC qualities/entry_point_shared)
 
-
-
-
-
-
+add_executable(entry_point
+        qualities/entry_point_shared/main.cpp)
+target_include_directories(entry_point
+        PUBLIC qualities/entry_point_shared)
+target_link_libraries(entry_point
+        entry_point_shared)
