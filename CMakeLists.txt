@@ -4,9 +4,10 @@ project(optimized_cplusplus)
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
+
+add_definitions("-std=c++11 -O0 -g -pg -Wall")
 # O2 for lantency test
-#add_definitions("-std=c++11 -O0 -g -pg -Wall")
-add_definitions("-std=c++11 -O2 -g -Wall")
+#add_definitions("-std=c++11 -O2 -g -Wall")
 #set(CXX_FLAGS
 #    #-g
 #    # -DVALGRIND
@@ -33,3 +34,5 @@ include_directories("${PROJECT_SOURCE_DIR}/inc/")
 add_subdirectory(src)
 add_subdirectory(gtest)
 add_subdirectory(api_design)
+add_subdirectory(functional_programming)
+add_subdirectory(data_struct_algorithm)
