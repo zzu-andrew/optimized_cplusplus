@@ -10,6 +10,11 @@
 
 using namespace std;
 
+extern const uint32_t ARRAY_OK;
+extern const uint32_t ARRAY_ERROR;
+extern const uint32_t ARRAY_INDEX_INVALID;
+
+
 // 定义一个抽象类，用于指定实现一个arrayList都需要实现哪些函数接口
 
 template<class T>

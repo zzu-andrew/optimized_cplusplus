@@ -49,7 +49,9 @@ public:
 
     T& Get(int index) const override;
 
-    int indexOf(const T &theElement) const override;
+    int IndexOf(const T &theElement) const override;
+
+    void Erase(int theIndex) override;
 
 protected:
     void CheckIndex(int32_t index);

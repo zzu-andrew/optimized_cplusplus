@@ -50,17 +50,35 @@ T &ArrayList<T>::Get(int index) const {
 }
 
 template<typename T>
-int ArrayList<T>::indexOf(const T &theElement) const {
+int ArrayList<T>::IndexOf(const T &theElement) const {
     // 查找元素 find 函数会查找对应的元素，找到之后返回指向对应元素的迭代器，这里是指针，那么穿出来的值减去首地址之后就是元素的索引信息
     int index = static_cast<int32_t>(find(m_element, m_element + m_listSize, theElement) - m_element);
 
     // check index valid
     if (index == m_listSize) {
-        return -1;
+        return ARRAY_ERROR;
+    } else {
+        return index;
+    }
+}
+
+template<typename T>
+void ArrayList<T>::Erase(int theIndex) {
+    try {
+        CheckIndex(theIndex);
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
-    return 0;
+    // 将对应元素擦出，对应位置的元素使用后面的元素覆盖掉
+    copy(m_element + theIndex + 1, m_element + m_listSize, m_element + theIndex);
+    m_element[--m_listSize].~T(); // 记得，存入的元素可能是个对应简单的数据类型，需要触发下析枸函数
+    // 避免最后一个元素析枸函数有需要处理的书
 }
+
+
+
+
 
 
 
